@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Celine_Ishimwe_s1906582</string>
+    <string name="Homepage_title">Highway England</string>
+    <string name="Homepage_subtitle">Live traffic information</string>
+    <string name="button_roadIncidents">ROAD INCIDENTS</string>
+    <string name="button_roadWorks">ROAD WORKS</string>
+    <string name="button_journeyPlanner">JOURNEY PLANNER</string>
+    <string name="button_search">SEARCH</string>
+    <string name="footer">Welcome to Highway England | Designed to help with traffic</string>
+    <string name="title_activity_road_incident">RoadIncident</string>
+    <string name="title_activity_road_incidents">RoadIncidents</string>
+</resources>
