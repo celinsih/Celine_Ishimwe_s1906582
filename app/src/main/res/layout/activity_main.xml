@@ -7,7 +7,6 @@
     tools:context=".MainActivity"
     android:background="@color/whiteGrey"
     >
-
     <ScrollView
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
@@ -57,14 +56,14 @@
                 android:orientation="horizontal"
                 >
                 <Button
-                    android:id="@+id/buttonInc"
+                    android:id="@+id/rWorks"
                     android:layout_width="180dp"
                     android:layout_height="150dp"
                     android:layout_marginStart="15dp"
                     android:textColor="@color/darkBlue"
                     android:drawableTop="@drawable/icon1"
                     android:paddingTop="20dp"
-                    android:text="@string/button_roadIncidents"
+                    android:text="@string/button_roadWorks"
                     android:backgroundTint="@color/white"
                     android:background="@drawable/rounded_button"
                 />
@@ -91,14 +90,14 @@
             android:orientation="horizontal"
             >
             <Button
-                android:id="@+id/rWorks"
+                android:id="@+id/buttonInc"
                 android:layout_width="180dp"
                 android:layout_height="150dp"
                 android:layout_marginStart="15dp"
                 android:textColor="@color/darkBlue"
                 android:drawableTop="@drawable/icon3"
                 android:paddingTop="20dp"
-                android:text="@string/button_roadWorks"
+                android:text="@string/button_roadIncidents"
                 android:background="@drawable/rounded_button"
                 />
             <Button

@@ -2,7 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.celine_ishimwe_s1906582">
-
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
          Google Maps Android API v2, but you must specify either coarse or fine
@@ -19,7 +18,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Celine_Ishimwe_s1906582"
         android:usesCleartextTraffic="true">
-
+        <activity
+            android:name=".Roadworks"
+            android:exported="false" />
         <!--
              TODO: Before you run your application, you need a Google Maps API key.
 
@@ -33,8 +34,7 @@
         -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value= "AIzaSyBKxpkwIk1KcupiThBIRXi9kLj9qwTyYOc"
-            />
+            android:value="AIzaSyBKxpkwIk1KcupiThBIRXi9kLj9qwTyYOc" />
 
         <activity
             android:name=".RoadIncidents"
@@ -54,5 +54,5 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
     </application>
-
+    <uses-permission android:name="android.permission.INTERNET" />
 </manifest>

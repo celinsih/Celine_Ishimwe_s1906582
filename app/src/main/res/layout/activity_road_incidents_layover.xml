@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Roadworks">
+    <RelativeLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/whiteGrey"
+        android:fontFamily="@font/sen"
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints" >
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:letterSpacing="0.1"
+            android:paddingTop="25dp"
+            android:text="@string/RoadIncidents_Title"
+            android:textAlignment="center"
+            android:textColor="@color/darkGreen"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:drawablePadding="20dp"
+            android:layout_marginStart="50dp"
+            app:drawableStartCompat="@drawable/titleicon1" />
+
+<!--        <ImageView-->
+<!--            android:layout_width="35dp"-->
+<!--            android:layout_height="25dp"-->
+<!--            android:layout_marginStart="370dp"-->
+<!--            android:layout_marginTop="25dp"-->
+<!--            android:src="@drawable/map1"-->
+<!--            tools:ignore="ContentDescription,ImageContrastCheck" />-->
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="75dp">
+
+            <Spinner
+                android:id="@+id/filterDropdown"
+                android:layout_width="50dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="20dp"
+                android:background="@drawable/filtericon"
+                android:spinnerMode="dropdown"
+                />
+
+            <EditText
+                android:layout_width="300dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="80dp"
+                android:autofillHints=""
+                android:background="@drawable/searchbar"
+                android:hint="@string/search_on_a_specific_road"
+                android:inputType="text"
+                android:labelFor="@+id/filterDropdown"
+                android:textColorHint="#757575"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                tools:ignore="DuplicateSpeakableTextCheck"
+                android:drawableEnd="@drawable/search"
+                />
+        </RelativeLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="140dp"
+            android:orientation="horizontal"
+            android:layout_marginStart="-5dp">
+        <TextView
+            android:id="@+id/status_"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:text="@string/period"
+            android:gravity="center_horizontal|top"
+            android:letterSpacing="0.1"
+            android:layout_marginStart="25dp"
+            android:textColor="@color/black"
+            android:layout_marginEnd="10dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/periodItem"
+            android:textSize="15sp"
+            android:textColor="@color/black"
+            android:drawablePadding="5dp"
+            android:letterSpacing="0.05"
+            android:layout_marginEnd="10dp"
+            app:drawableStartCompat="@drawable/futurerw" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/periodItem2"
+            android:textSize="15sp"
+            android:textColor="@color/black"
+            android:drawablePadding="5dp"
+            android:letterSpacing="0.05"
+            android:layout_marginEnd="10dp"
+            app:drawableStartCompat="@drawable/currentrw" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/periodItem3"
+            android:textSize="15sp"
+            android:textColor="@color/black"
+            android:drawablePadding="5dp"
+            android:letterSpacing="0.05"
+            app:drawableStartCompat="@drawable/pastrw" />
+        </LinearLayout>
+
+        <ListView
+            android:id="@+id/roadworklist"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="170dp"/>
+
+
+
+        <ImageButton
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="20dp"
+            android:src="@drawable/back"
+            tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+
+
+
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

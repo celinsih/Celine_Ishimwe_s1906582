@@ -26,7 +26,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
 
-public class RoadIncidents extends AppCompatActivity {
+public class Roadworks extends AppCompatActivity {
     ListView listViewRss;
     ArrayList<Item> events;
     Object roadworkItem;
@@ -102,7 +102,7 @@ public class RoadIncidents extends AppCompatActivity {
     }
 
     public  class ProcessInBackground extends AsyncTask<Integer, Integer, Exception>{
-        ProgressDialog progressDialog = new ProgressDialog(RoadIncidents.this);
+        ProgressDialog progressDialog = new ProgressDialog(Roadworks.this);
         Exception exception = null;
         @Override
         protected void onPreExecute() {
@@ -134,7 +134,7 @@ public class RoadIncidents extends AppCompatActivity {
                             break;
 
                         case XmlPullParser.TEXT:
-                            text = xpp.getText();
+                             text = xpp.getText();
                             break;
                         case XmlPullParser.END_TAG:
                             if(xpp.getName().equalsIgnoreCase("title")) {
@@ -193,7 +193,7 @@ public class RoadIncidents extends AppCompatActivity {
 
             for(Item item: events){
 
-                if(!item.getCategory().equals("Road Works")){
+                if(item.getCategory().equals("Road Works")){
                     list.add(item);
                 }
 

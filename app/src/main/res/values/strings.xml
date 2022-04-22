@@ -9,4 +9,20 @@
     <string name="footer">Welcome to Highway England | Designed to help with traffic</string>
     <string name="title_activity_road_incident">RoadIncident</string>
     <string name="title_activity_road_incidents">RoadIncidents</string>
+    <string name="RoadIncidents_Title">Highway E. Roadworks</string>
+    <string name="search_on_a_specific_road">Search on a specific Road</string>
+    <string name="RoadworkItem">Road Works</string>
+    <string name="RoadNumber">M42</string>
+    <string name="RwLocation">A42 southbound between A453 and A511</string>
+    <string name="RwPeriod">from 26 April 2022 to 1 May 2022</string>
+    <string name="home">HOME</string>
+    <string name="period">PERIOD:</string>
+    <string name="periodItem">Future RW</string>
+    <string name="periodItem2">Current RW</string>
+    <string name="periodItem3">Past RW</string>
+    <string-array name="Filter">
+        <item> </item>
+        <item>Current RW</item>
+        <item>Future RW</item>
+    </string-array>
 </resources>
