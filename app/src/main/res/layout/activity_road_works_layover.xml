@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RoadIncidents">
+    tools:context=".Roadworks">
     <RelativeLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
@@ -22,7 +22,7 @@
             android:drawablePadding="10dp"
             android:letterSpacing="0.1"
             android:paddingTop="25dp"
-            android:text="@string/RoadIncidents_Title"
+            android:text="@string/Roadwork_Title"
             android:textAlignment="center"
             android:textColor="@color/darkGreen"
             android:textSize="25sp"
@@ -59,7 +59,7 @@
                 tools:ignore="DuplicateSpeakableTextCheck,TouchTargetSizeCheck" />
             <ImageButton
                 android:id="@+id/search_button"
-                android:onClick="search"
+                android:onClick="searchByRoad"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/searchbutton"
@@ -90,27 +90,37 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="17dp"
-                android:onClick="current"
-                android:background="@drawable/currentincident"
+                android:onClick="futureRoadW"
+                android:background="@drawable/futurerw2"
                 tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck"
                 android:contentDescription="TODO" />
 
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:onClick="past"
-                android:background="@drawable/pastincident"
+                android:layout_marginRight="17dp"
+                android:onClick="currentRW"
+                android:background="@drawable/currentrw2"
+                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck"
+                android:contentDescription="TODO" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="pastRW"
+                android:background="@drawable/pastrw2"
                 tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
         </LinearLayout>
 
         <ListView
-            android:id="@+id/incidentList"
+            android:id="@+id/roadworklist"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="190dp"
             android:divider="@null"
-            android:dividerHeight="0dp" />
+            android:dividerHeight="0dp"
+            />
 
 
 

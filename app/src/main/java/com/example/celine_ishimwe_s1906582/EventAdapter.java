@@ -8,6 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -16,7 +18,7 @@ import androidx.appcompat.content.res.AppCompatResources;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EventAdapter extends BaseAdapter {
+public class EventAdapter extends BaseAdapter{
 
     List<Item> itemList;
     Activity activity;
@@ -29,7 +31,7 @@ public class EventAdapter extends BaseAdapter {
     public void updateItems(ArrayList<Item> items){
         Log.d("Event Adapter", String.valueOf(items.size()));
 
-        itemList.addAll(items);
+        itemList = items;
         notifyDataSetChanged();
     }
 
@@ -62,11 +64,22 @@ public class EventAdapter extends BaseAdapter {
 
         Item item = getItem(i);
         String title = item.getTitle();
-        String period = item.status;
-
-        roadworkName.setText(item.getCategory());
+        String period = item.getStatus();
+        String rName = item.getCategory();
+        if(period.equals("Current")){
+            imageView.setImageResource(R.drawable.currentrw);
+        }else if(period.equals("Future")){
+            imageView.setImageResource(R.drawable.futurerw);
+        }else{
+            imageView.setImageResource(R.drawable.pastrw);
+        }
+        if(rName.equals("RoadOrCarriagewayOrLaneManagement") || rName.equals("Broken down vehicle")){
+            roadworkName.setText(rName.substring(0,12));
+        }else {
+            roadworkName.setText(item.getCategory());
+        }
         road.setText(item.getRoad());
-        location.setText(item.getTitle());
+        location.setText(title.substring(0, title.indexOf("|")));
         date.setText(item.getEventStart());
 
 

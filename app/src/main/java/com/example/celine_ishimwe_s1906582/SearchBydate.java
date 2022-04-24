@@ -1,7 +1,6 @@
 package com.example.celine_ishimwe_s1906582;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -9,9 +8,12 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -24,10 +26,11 @@ import java.net.URL;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
-public class RoadIncidents extends AppCompatActivity {
+public class SearchBydate extends AppCompatActivity {
     ListView listViewRss;
     ArrayList<Item> events;
     EventAdapter eventAdapter;
@@ -37,15 +40,15 @@ public class RoadIncidents extends AppCompatActivity {
     ProgressDialog progressDialog;
     EditText searchBar;
     ImageButton searchButton;
-
+    final Calendar myCalendar= Calendar.getInstance();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_road_incidents_layover);
+        setContentView(R.layout.activity_searchby_date_layover);
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Please wait while we load the data...");
         new ProcessInBackground().execute();
-        listViewRss = findViewById(R.id.incidentList);
+        listViewRss = findViewById(R.id.listview);
         events = new ArrayList<>();
         eventAdapter = new EventAdapter(events, this);
         listViewRss.setAdapter(eventAdapter);
@@ -53,7 +56,7 @@ public class RoadIncidents extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Log.d("Road works", "Item is clicked");
-                Intent intent = new Intent(RoadIncidents.this, Event_details.class);
+                Intent intent = new Intent(SearchBydate.this, Event_details.class);
                 Item clickedItem = eventAdapter.getItem(i);
                 intent.putExtra("status", clickedItem.getStatus());
                 intent.putExtra("road work", clickedItem.getCategory());
@@ -73,8 +76,28 @@ public class RoadIncidents extends AppCompatActivity {
             }
         });
         searchBar = findViewById(R.id.search_bar);
+        DatePickerDialog.OnDateSetListener date =new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int day) {
+                myCalendar.set(Calendar.YEAR, year);
+                myCalendar.set(Calendar.MONTH,month);
+                myCalendar.set(Calendar.DAY_OF_MONTH,day);
+                updateLabel();
+            }
+        };
+        searchBar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                new DatePickerDialog(SearchBydate.this,date,myCalendar.get(Calendar.YEAR),myCalendar.get(Calendar.MONTH),myCalendar.get(Calendar.DAY_OF_MONTH)).show();
+            }
+        });
         searchButton = findViewById(R.id.search_button);
 
+    }
+    private void updateLabel(){
+        String myFormat="MM/dd/yy";
+        SimpleDateFormat dateFormat=new SimpleDateFormat(myFormat, Locale.US);
+        searchBar.setText(dateFormat.format(myCalendar.getTime()));
     }
     public InputStream getInputStream(URL url){
         try {
@@ -116,6 +139,7 @@ public class RoadIncidents extends AppCompatActivity {
 
         return status;
     }
+
 
     public  class ProcessInBackground extends AsyncTask<Integer, Integer, Exception>{
         Exception exception = null;
@@ -208,11 +232,7 @@ public class RoadIncidents extends AppCompatActivity {
 
             for(Item item: events){
 
-                String category = item.getCategory();
-
-                if(!category.equals("Road Works")){
                     list.add(item);
-                }
 
             }
 
@@ -223,17 +243,30 @@ public class RoadIncidents extends AppCompatActivity {
 
 
     }
-    public void search(View view) {
+    public void searchdate(View view) throws ParseException {
         progressDialog.show();
         ArrayList<Item> list = new ArrayList<>();
 
         String searchRoad = searchBar.getText().toString().toLowerCase();
 
+        Date sdf = new SimpleDateFormat("MM/dd/yy").parse(searchRoad);
+
         for(Item item: events){
 
-            String road = item.getRoad().toLowerCase();
-            String category = item.getCategory();
-            if(!category.equals("Road Works") && road.contains(searchRoad)){
+            String eventStart = item.getEventStart();
+            String eventEnd = item.getEventEnd();
+            Date start = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss").parse(eventStart);
+            Date end = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss").parse(eventEnd);
+
+            //put all the date in same format
+            SimpleDateFormat  checkIfEqual = new SimpleDateFormat("yyyyMMdd");
+            String startF = checkIfEqual.format(start);
+            String endF = checkIfEqual.format(end);
+            String userF = checkIfEqual.format(sdf);
+
+            if( startF.equals(userF)|| endF.equals(userF) ){
+                list.add(item);
+            } else if(sdf.after(start) && sdf.before(end)){
                 list.add(item);
             }
 
@@ -243,35 +276,150 @@ public class RoadIncidents extends AppCompatActivity {
         progressDialog.dismiss();
     }
 
-    public void current(View view) {
+    public void currentRW(View view) throws ParseException {
         progressDialog.show();
         ArrayList<Item> list = new ArrayList<>();
+        String searchRoad = searchBar.getText().toString().toLowerCase();
 
-        for(Item item: events){
-            String category = item.getCategory();
-            if(!category.equals("Road Works") && item.getStatus().equals("Current")){
-                list.add(item);
-            }
+         if(searchRoad.equals("")){
 
-        }
+             for(Item item: events){
+                 if(item.getCategory().equals("Road Works") && item.getStatus().equals("Current")){
+                     list.add(item);
+                 }
+             }
+
+         }else{
+
+             for(Item item: events){
+                 String category = item.getCategory();
+                 if(category.equals("Road Works") && item.getStatus().equals("Current")){
+
+                     Date sdf = new SimpleDateFormat("MM/dd/yy").parse(searchRoad);
+
+
+                     String eventStart = item.getEventStart();
+                     String eventEnd = item.getEventEnd();
+                     Date start = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss").parse(eventStart);
+                     Date end = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss").parse(eventEnd);
+
+                     //put all the date in same format
+                     SimpleDateFormat  checkIfEqual = new SimpleDateFormat("yyyyMMdd");
+                     String startF = checkIfEqual.format(start);
+                     String endF = checkIfEqual.format(end);
+                     String userF = checkIfEqual.format(sdf);
+
+                     if( startF.equals(userF)|| endF.equals(userF) ){
+                         list.add(item);
+                     } else if(sdf.after(start) && sdf.before(end)){
+                         list.add(item);
+                     }
+
+                 }
+
+             }
+
+         }
+
+
 
         eventAdapter.updateItems(list);
         progressDialog.dismiss();
 
     }
 
-    public void past(View view) {
+    public void futureRW(View view) throws ParseException {
         progressDialog.show();
         ArrayList<Item> list = new ArrayList<>();
+        String searchRoad = searchBar.getText().toString().toLowerCase();
 
-        for(Item item: events){
-            String category = item.getCategory();
-            if(!category.equals("Road Works") && item.getStatus().equals("Past")){
-                list.add(item);
+        if(searchRoad.equals("")){
+
+            for(Item item: events){
+                if(item.getCategory().equals("Road Works") && item.getStatus().equals("Future")){
+                    list.add(item);
+                }
+            }
+
+        }else{
+
+            for(Item item: events){
+                String category = item.getCategory();
+                if(category.equals("Road Works") && item.getStatus().equals("Future")){
+
+                    Date sdf = new SimpleDateFormat("MM/dd/yy").parse(searchRoad);
+
+
+                    String eventStart = item.getEventStart();
+                    String eventEnd = item.getEventEnd();
+                    Date start = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss").parse(eventStart);
+                    Date end = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss").parse(eventEnd);
+
+                    //put all the date in same format
+                    SimpleDateFormat  checkIfEqual = new SimpleDateFormat("yyyyMMdd");
+                    String startF = checkIfEqual.format(start);
+                    String endF = checkIfEqual.format(end);
+                    String userF = checkIfEqual.format(sdf);
+
+                    if( startF.equals(userF)|| endF.equals(userF) ){
+                        list.add(item);
+                    } else if(sdf.after(start) && sdf.before(end)){
+                        list.add(item);
+                    }
+
+                }
+
             }
 
         }
+        eventAdapter.updateItems(list);
+        progressDialog.dismiss();
+    }
 
+    public void Incidents(View view) throws ParseException {
+        progressDialog.show();
+        ArrayList<Item> list = new ArrayList<>();
+        String searchRoad = searchBar.getText().toString().toLowerCase();
+
+        if(searchRoad.equals("")){
+
+            for(Item item: events){
+                if(!item.getCategory().equals("Road Works")){
+                    list.add(item);
+                }
+            }
+
+        }else{
+
+            for(Item item: events){
+                String category = item.getCategory();
+                if(!category.equals("Road Works") ){
+
+                    Date sdf = new SimpleDateFormat("MM/dd/yy").parse(searchRoad);
+
+
+                    String eventStart = item.getEventStart();
+                    String eventEnd = item.getEventEnd();
+                    Date start = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss").parse(eventStart);
+                    Date end = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss").parse(eventEnd);
+
+                    //put all the date in same format
+                    SimpleDateFormat  checkIfEqual = new SimpleDateFormat("yyyyMMdd");
+                    String startF = checkIfEqual.format(start);
+                    String endF = checkIfEqual.format(end);
+                    String userF = checkIfEqual.format(sdf);
+
+                    if( startF.equals(userF)|| endF.equals(userF) ){
+                        list.add(item);
+                    } else if(sdf.after(start) && sdf.before(end)){
+                        list.add(item);
+                    }
+
+                }
+
+            }
+
+        }
         eventAdapter.updateItems(list);
         progressDialog.dismiss();
     }

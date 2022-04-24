@@ -1,16 +1,16 @@
 package com.example.celine_ishimwe_s1906582;
 
 public class Item {
-    String category;
-    String road;
-    String description;
-    String title;
-    String region;
-    String latitude;
-    String longitude;
-    String eventStart;
-    String eventEnd;
-    String status;
+    private String category;
+    private String road;
+    private String description;
+    private String title;
+    private String region;
+    private String latitude;
+    private String longitude;
+    private String eventStart;
+    private String eventEnd;
+    private String status;
 
     public void setStatus(String status) {
         this.status = status;
@@ -86,5 +86,9 @@ public class Item {
 
     public void setEventEnd(String eventEnd) {
         this.eventEnd = eventEnd;
+    }
+
+    public String getStatus() {
+        return status;
     }
 }

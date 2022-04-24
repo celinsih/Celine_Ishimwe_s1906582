@@ -5,21 +5,25 @@
     <string name="button_roadIncidents">ROAD INCIDENTS</string>
     <string name="button_roadWorks">ROAD WORKS</string>
     <string name="button_journeyPlanner">JOURNEY PLANNER</string>
-    <string name="button_search">SEARCH</string>
+    <string name="button_search">SEARCH BY DATE</string>
     <string name="footer">Welcome to Highway England | Designed to help with traffic</string>
     <string name="title_activity_road_incident">RoadIncident</string>
     <string name="title_activity_road_incidents">RoadIncidents</string>
-    <string name="RoadIncidents_Title">Highway E. Roadworks</string>
+    <string name="RoadIncidents_Title">Highway E. Incidents</string>
+    <string name="Roadwork_Title">Highway E. Roadworks</string>
+    <string name="Search_date">Highway E. Search By Date</string>
     <string name="search_on_a_specific_road">Search on a specific Road</string>
-    <string name="RoadworkItem">Road Works</string>
+    <string name="search_format">Sample search: MM-DD-YY</string>
+    <string name="RoadworkItem">Road Work</string>
     <string name="RoadNumber">M42</string>
     <string name="RwLocation">A42 southbound between A453 and A511</string>
     <string name="RwPeriod">from 26 April 2022 to 1 May 2022</string>
     <string name="home">HOME</string>
-    <string name="period">PERIOD:</string>
+    <string name="period">Filter:</string>
     <string name="periodItem">Future RW</string>
     <string name="periodItem2">Current RW</string>
     <string name="periodItem3">Past RW</string>
+    <string name="back">Back</string>
     <string-array name="Filter">
         <item> </item>
         <item>Current RW</item>

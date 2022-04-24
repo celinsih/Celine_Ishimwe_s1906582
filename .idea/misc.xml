@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.121" />
         <entry key="app/src/main/res/drawable/dragupbutton.xml" value="0.1135" />
         <entry key="app/src/main/res/drawable/filter.xml" value="0.1135" />
         <entry key="app/src/main/res/drawable/filtericon.xml" value="0.1135" />
@@ -18,9 +19,13 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_road_incident.xml" value="0.23097826086956522" />
         <entry key="app/src/main/res/layout/activity_road_incidents.xml" value="0.165" />
-        <entry key="app/src/main/res/layout/activity_road_incidents_layover.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_road_incidents_layover.xml" value="0.14681440443213298" />
+        <entry key="app/src/main/res/layout/activity_road_works_layover.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_searchBy_date_layover.xml" value="0.2509057971014493" />
+        <entry key="app/src/main/res/layout/activity_searchby_date_layover.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_startercode.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/listview.xml" value="0.12083333333333333" />
+        <entry key="app/src/main/res/layout/event_details_layout.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/listview.xml" value="0.1" />
         <entry key="app/src/main/res/menu/my_navigation_items.xml" value="0.2578125" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1135" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1135" />

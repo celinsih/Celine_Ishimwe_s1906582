@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+  <RelativeLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent" >
+
+    <ImageButton
+        android:id="@+id/back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="back"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/back2"
+        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/map"
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="20dp"/>
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/RoadworkItem"
+        android:layout_marginTop="210dp"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        android:textColor="@color/darkBlue"
+        android:letterSpacing="0.05"
+        android:layout_marginStart="25dp"/>
+
+    <RelativeLayout
+        android:id="@+id/details"
+        android:layout_width="360dp"
+        android:layout_height="300dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="240dp"
+        android:background="@drawable/dragupbutton">
+
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="15dp"
+          android:layout_marginTop="25dp"
+          android:letterSpacing="0.05"
+          android:text="Description:"
+          android:textColor="@color/darkBlue"
+          android:textSize="14dp"
+          android:textStyle="bold" />
+
+      <TextView
+          android:id="@+id/description"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="15dp"
+          android:layout_marginTop="50dp"
+          android:text="A1 southbound exit for A1231 | Southbound | Road Works"
+          android:textAlignment="textStart"
+          android:textColor="@color/darkBlue"
+          android:textSize="14dp" />
+
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="15dp"
+          android:layout_marginTop="90dp"
+          android:letterSpacing="0.05"
+          android:text="Event Start:"
+          android:textColor="@color/darkBlue"
+          android:textSize="14dp"
+          android:textStyle="bold" />
+
+      <TextView
+          android:id="@+id/eventStart"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="15dp"
+          android:layout_marginTop="110dp"
+          android:text="2022-04-25T20:00:00+01:00"
+          android:textAlignment="textStart"
+          android:textColor="@color/darkBlue"
+          android:textSize="14dp" />
+
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="15dp"
+          android:layout_marginTop="135dp"
+          android:letterSpacing="0.05"
+          android:text="Event End:"
+          android:textColor="@color/darkBlue"
+          android:textSize="14dp"
+          android:textStyle="bold" />
+
+      <TextView
+          android:id="@+id/eventEnd"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="15dp"
+          android:layout_marginTop="155dp"
+          android:text="2022-04-25T20:00:00+01:00"
+          android:textAlignment="textStart"
+          android:textColor="@color/darkBlue"
+          android:textSize="14dp" />
+
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="15dp"
+          android:layout_marginTop="180dp"
+          android:letterSpacing="0.05"
+          android:text="Region:"
+          android:textColor="@color/darkBlue"
+          android:textSize="14dp"
+          android:textStyle="bold" />
+
+      <TextView
+          android:id="@+id/region"
+          android:layout_width="320dp"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="15dp"
+          android:layout_marginTop="200dp"
+          android:text="Sevin excess of 3 hours delay or road closure"
+          android:textAlignment="textStart"
+          android:textColor="@color/darkBlue"
+          android:textSize="14dp" />
+
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="15dp"
+          android:layout_marginTop="225dp"
+          android:letterSpacing="0.05"
+          android:text="Status:"
+          android:textColor="@color/darkBlue"
+          android:textSize="14dp"
+          android:textStyle="bold" />
+
+      <TextView
+          android:id="@+id/status_"
+          android:layout_width="320dp"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="15dp"
+          android:layout_marginTop="245dp"
+          android:text="Current Roadwork"
+          android:textAlignment="textStart"
+          android:textColor="@color/darkBlue"
+          android:textSize="14dp" />
+    </RelativeLayout>
+
+
+
+  </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

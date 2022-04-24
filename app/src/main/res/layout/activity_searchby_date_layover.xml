@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RoadIncidents">
+    tools:context=".SearchBydate">
     <RelativeLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
@@ -18,16 +18,16 @@
             android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="25dp"
+            android:layout_marginStart="10dp"
             android:drawablePadding="10dp"
             android:letterSpacing="0.1"
             android:paddingTop="25dp"
-            android:text="@string/RoadIncidents_Title"
+            android:text="@string/Search_date"
             android:textAlignment="center"
             android:textColor="@color/darkGreen"
-            android:textSize="25sp"
+            android:textSize="24sp"
             android:textStyle="bold"
-            app:drawableStartCompat="@drawable/titleicon1" />
+            app:drawableStartCompat="@drawable/searchbydate" />
 
 <!--        <ImageView-->
 <!--            android:layout_width="35dp"-->
@@ -41,7 +41,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="75dp">
-
             <EditText
                 android:id="@id/search_bar"
                 android:layout_width="290dp"
@@ -49,17 +48,19 @@
                 android:layout_marginStart="20dp"
                 android:autofillHints=""
                 android:background="@drawable/searchbar"
-                android:hint="@string/search_on_a_specific_road"
-                android:inputType="text"
+                android:hint="@string/search_format"
                 android:labelFor="@+id/filterDropdown"
                 android:paddingStart="20dp"
                 android:paddingEnd="20dp"
                 android:textColorHint="#757575"
                 android:textSize="15sp"
-                tools:ignore="DuplicateSpeakableTextCheck,TouchTargetSizeCheck" />
+                android:clickable="false"
+                android:cursorVisible="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"/>
             <ImageButton
                 android:id="@+id/search_button"
-                android:onClick="search"
+                android:onClick="searchdate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/searchbutton"
@@ -90,27 +91,37 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="17dp"
-                android:onClick="current"
-                android:background="@drawable/currentincident"
+                android:onClick="futureRW"
+                android:background="@drawable/futurerw2"
                 tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck"
                 android:contentDescription="TODO" />
 
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:onClick="past"
-                android:background="@drawable/pastincident"
+                android:layout_marginRight="17dp"
+                android:onClick="currentRW"
+                android:background="@drawable/currentrw2"
+                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck"
+                android:contentDescription="TODO" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="Incidents"
+                android:background="@drawable/incidents"
                 tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
         </LinearLayout>
 
         <ListView
-            android:id="@+id/incidentList"
+            android:id="@+id/listview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="190dp"
             android:divider="@null"
-            android:dividerHeight="0dp" />
+            android:dividerHeight="0dp"
+            />
 
 
 

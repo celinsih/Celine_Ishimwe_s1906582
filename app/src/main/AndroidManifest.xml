@@ -19,6 +19,12 @@
         android:theme="@style/Theme.Celine_Ishimwe_s1906582"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".SearchBydate"
+            android:exported="false" />
+        <activity
+            android:name=".Event_details"
+            android:exported="false" />
+        <activity
             android:name=".Roadworks"
             android:exported="false" />
         <!--
@@ -38,8 +44,7 @@
 
         <activity
             android:name=".RoadIncidents"
-            android:exported="false"
-            android:label="@string/title_activity_road_incidents" />
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

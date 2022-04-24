@@ -52,7 +52,18 @@ public class MainActivity extends AppCompatActivity implements OnClickListener
                 openRoadIncidents();
             }
         });
-
+        jPlanner.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openJPlanner();
+            }
+        });
+        search.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openSearch();
+            }
+        });
 
 //        Log.e("MyTag","in onCreate");
         // Set up the raw links to the graphical components
@@ -62,6 +73,15 @@ public class MainActivity extends AppCompatActivity implements OnClickListener
 //        Log.e("MyTag","after startButton");
         // More Code goes here
     }
+
+    private void openSearch() {
+        Intent intent = new Intent(this, SearchBydate.class);
+        startActivity(intent);
+    }
+
+    private void openJPlanner() {
+    }
+
     public void openRoadWorks(){
         Intent intent = new Intent(this, Roadworks.class);
         startActivity(intent);
