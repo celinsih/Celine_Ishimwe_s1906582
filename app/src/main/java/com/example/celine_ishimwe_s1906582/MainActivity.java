@@ -80,6 +80,8 @@ public class MainActivity extends AppCompatActivity implements OnClickListener
     }
 
     private void openJPlanner() {
+        Intent intent = new Intent(this, JPlanner.class);
+        startActivity(intent);
     }
 
     public void openRoadWorks(){
